@@ -1,4 +1,4 @@
-## M-expense
+## Application
 
 This application was written using cordova and tested on platform android.
 
