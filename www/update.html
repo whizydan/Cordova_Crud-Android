@@ -1,0 +1,106 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, please refer to the docs:
+            https://cordova.apache.org/docs/en/latest/
+        Some notes:
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <meta name="color-scheme" content="light">
+        <link rel="stylesheet" href="css/index.css">
+        <!-- add bootstrap css for responsive layout -->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <title>M-Expense</title>
+    </head>
+    <body>
+      <!-- modal for adding new trips -->
+        <div class="modal fade modal-xl" data-bs-backdrop="static" id="addingModal" tabindex="-1" aria-labelledby="ModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="ModalLabel">Add new trip</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                <!-- input form that captures the data -->
+                <form class="row g-3 needs-validation" validate>
+                    <div class="col-md-4">
+                      <label for="name" class="form-label">Name of trip</label>
+                      <input type="text"  class="form-control" id="name"  required>
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="destination" class="form-label">Destination</label>
+                      <input type="text" class="form-control" id="destination"  required>
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="date" class="form-label">Date of trip</label>
+                      <div class="input-group has-validation">
+                        <span class="input-group-text" id="inputGroupPrepend">DD/MM/YY</span>
+                        <input type="number" class="form-control" id="date" aria-describedby="inputGroupPrepend" required>
+                        <div class="invalid-feedback">
+                          Please enter date
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="description" class="form-label">Description</label>
+                      <input type="text" class="form-control" id="description" >
+                      
+                    </div>
+                    <div class="col-md-3">
+                      <label for="risk" class="form-label">Requires risk assessment</label>
+                      <select class="form-select" id="risk" required>
+                        <option selected disabled value="">Choose...</option>
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please select a valid state.
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <label for="companions" class="form-label">Travelling with</label>
+                      <input type="text" class="form-control" id="companions" placeholder="separate with comma">
+                      
+                    </div>
+                    <div class="col-12">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                        <label class="form-check-label" for="invalidCheck">
+                          I understand the organizations terms and conditions and Agree to follow them.
+                        </label>
+                        <div class="invalid-feedback">
+                          You must agree before submitting.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <button class="btn btn-primary" id="add" type="submit">Add Trip</button>
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                <button type="button"  class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+            </div>
+        </div>
+        <script src="cordova.js"></script>
+        <script src="js/index.js"></script>
+        <!-- bootstrap javascript library to enable proper loading of css elements -->
+        <script src="js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>

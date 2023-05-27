@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<!--
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+    <head>
+        <meta charset="utf-8">
+        <!--
+        Customize this policy to fit your own app's needs. For more guidance, please refer to the docs:
+            https://cordova.apache.org/docs/en/latest/
+        Some notes:
+            * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+            * Disables use of inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+                * Enable inline JS: add 'unsafe-inline' to default-src
+        -->
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *; img-src 'self' data: content:;">
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="initial-scale=1, width=device-width, viewport-fit=cover">
+        <meta name="color-scheme" content="light">
+        <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <title>M-Expense</title>
+    </head>
+    <body>
+        <div class="container">
+            
+                <!-- input form that captures the data -->
+                <form class="row g-3 needs-validation" validate>
+                    <div class="col-md-4">
+                      <label for="delname" class="form-label">Name of trip</label>
+                      <input type="text"  class="form-control" id="delname"  required>
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="deldestination" class="form-label">Destination</label>
+                      <input type="text" class="form-control" id="deldestination"  required>
+                      <div class="valid-feedback">
+                        Looks good!
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+                      <label for="deldate" class="form-label">Date of trip</label>
+                      <div class="input-group has-validation">
+                        <span class="input-group-text" id="inputGroupPrepend">DD/MM/YY</span>
+                        <input type="number" class="form-control" id="deldate" aria-describedby="inputGroupPrepend" required>
+                        <div class="invalid-feedback">
+                          Please enter date
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <label for="deldescription" class="form-label">Description</label>
+                      <input type="text" class="form-control" id="deldescription" >
+                      
+                    </div>
+                    <div class="col-md-3">
+                      <label for="delrisk" class="form-label">Requires risk assessment</label>
+                      <select class="form-select" id="delrisk" required>
+                        <option selected disabled value="">Choose...</option>
+                        <option value="No">No</option>
+                        <option value="Yes">Yes</option>
+                      </select>
+                      <div class="invalid-feedback">
+                        Please select a valid state.
+                      </div>
+                    </div>
+                    <div class="col-md-3">
+                      <label for="delcompanions" class="form-label">Travelling with</label>
+                      <input type="text" class="form-control" id="delcompanions" placeholder="separate with comma">
+                      
+                    </div>
+                    <div class="col-12">
+                      <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="invalidCheck" required>
+                        <label class="form-check-label" for="invalidCheck">
+                          I understand the organizations terms and conditions and Agree to follow them.
+                        </label>
+                        <div class="invalid-feedback">
+                          You must agree before submitting.
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-12">
+                      <button class="btn btn-primary" id="update" type="submit"> Update </button>
+                      <button class="btn btn-danger" id="delete" type="submit" > Delete </button>
+                    </div>
+                  </form>
+        </div>
+        <script src="cordova.js"></script>
+        <script src="js/edit.js"></script>
+        <script src="js/bootstrap.bundle.min.js"></script>
+    </body>
+</html>
